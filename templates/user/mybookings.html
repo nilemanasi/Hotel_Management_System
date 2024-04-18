@@ -1,0 +1,59 @@
+{% extends 'basic.html' %} {% block title %}Dashboard {% endblock title %} {% block body %}
+{% load app_tags %}
+<h3 class="text-center  text-success">My Bookings </h3>
+
+<table class="table">
+    <thead>
+        <th>User</th>
+        <th>Room</th>
+        <th>Location</th>
+        <th>Person</th>
+        <th>Check in</th>
+        <th>Check out</th>
+        <th>Price</th>
+    </thead>
+    {% for each_booking in bookings %}
+    <tr>
+        <td>{{each_booking.guest.username}}</td>
+        <td>{{each_booking.room.roomnumber}}</td>
+        <td>{{each_booking.room.hotel.location}}</td>
+        <td>{{each_booking.room.capacity}}</td>
+        <td>{{each_booking.check_in}}</td>
+        <td>{{each_booking.check_out}}</td>
+        <td>{{each_booking.room.price}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="container bg-primary">
+
+    <!-- <div class="row">
+        <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto my-4 bg-light">
+            <h3 class="text-center  text-success">Total Payment : {{totalamount}}</h3>
+            <h2 class="text-center" >Make Your Payment through</h2>
+            
+            <div class="container text-center" >
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto my-4 bg-light " >
+                        <button id="Razorpay-button-container" style="height: 200px; width: 200px;"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- RAZORPAY INTEGRATION HERE -->
+    <!-- <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_9nmrK825fjo0Ym"
+    data-amount="50000" data-currency="INR" data-order_id="{{payment.id}}" data-buttontext="Pay with Razorpay"
+    data-name="Professional Cipher" data-description="Django and Data Science"
+    data-image="https://example.com/your_logo.jpg" data-prefill.name="PC" data-prefill.email="pc@studygyaan.com"
+    data-theme.color="#F37254"></script> -->
+
+</div>
+
+
+
+
+
+{% endblock body %}
